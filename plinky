@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "$1"
+
+plink --vcf /Users/aisha/Desktop/KUserver/UKBioBank/ukb22418_cY_b0_v2.vcf.gz  --geno 0.2 --hwe 0.001 --indep-pairwise 50 5 0.2 --mind 0.2 --extract ${1}/${1}snps.txt --make-bed --keep-fam ${1}/${1}_downsampled.txt --recode --out ${1}/chY
+plink --vcf /Users/aisha/Desktop/KUserver/UKBioBank/ukb22418_cX_b0_v2.vcf.gz  --geno 0.2 --hwe 0.001 --indep-pairwise 50 5 0.2 --mind 0.2 --extract ${1}/${1}snps.txt --make-bed --keep-fam ${1}/${1}_downsampled.txt --recode --out ${1}/chMT
+plink --vcf /Users/aisha/Desktop/KUserver/UKBioBank/ukb22418_cMT_b0_v2.vcf.gz  --geno 0.2 --hwe 0.001 --indep-pairwise 50 5 0.2 --mind 0.2 --extract ${1}/${1}snps.txt --keep-fam ${1}/${1}_downsampled.txt --make-bed --recode --out ${1}/chX
+
+for i in {1..22}
+do
+plink --vcf /Users/aisha/Desktop/KUserver/UKBioBank/ukb22418_c${i}_b0_v2.vcf.gz  --geno 0.2 --hwe 0.001 --indep-pairwise 50 5 0.2 --mind 0.2 --extract ${1}/${1}snps.txt --keep-fam ${1}/${1}_downsampled.txt --make-bed --recode --out ${1}/ch${i}
+done
+
+for i in ${1}/plinkFiles/*bed
+do
+echo $i | cut -f 1 -d '.' >> allfiles.txt #| cut -f 3 -d '/'  >> allfiles.txt
+done
+
+# plink --merge-list allfiles.txt --make-bed --out ${1}_Merged
+mkdir ${1}/plinkFiles
+mv ${1}/ch* ${1}/plinkFiles

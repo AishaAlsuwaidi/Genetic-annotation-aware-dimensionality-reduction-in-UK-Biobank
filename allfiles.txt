@@ -1,0 +1,10 @@
+Atrial/plinkFiles/*bed
+Breast/plinkFiles/*bed
+CAD/plinkFiles/*bed
+Cerebrovascular/plinkFiles/*bed
+Chronic/plinkFiles/*bed
+Chronic/plinkFiles/*bed
+Chronic/plinkFiles/*bed
+Chronic/plinkFiles/*bed
+Chronic/plinkFiles/*bed
+Chronic/plinkFiles/*bed

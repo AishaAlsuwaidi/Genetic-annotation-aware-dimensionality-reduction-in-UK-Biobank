@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+echo "======"
+echo "$1"
+echo "$2"
+echo "======"
+
+python ./codes/generate_samples.py $2
+cat patient_ids.txt control_ids.txt | sort >> all_ids.txt
+
+mkdir $1
+
+echo "Generating the VCF files of this disease.."
+python ./codes/downsample.py --disease-name $1
+
+mv patient_ids.txt control_ids.txt all_ids.txt $1
+mv ${1}_IDs.txt $1
+
+mv ${1}snps.txt $1
+mv ${1}_snp_result.xml $1
+mv ${1}_downsampled.txt $1
+echo "++++++++++++++++++++++++++++++++++"
