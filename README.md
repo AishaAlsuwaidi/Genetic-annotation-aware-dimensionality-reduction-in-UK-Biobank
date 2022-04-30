@@ -1,2 +1,2 @@
 # Genetic-annotation-aware-dimensionality-reduction-in-UK-Biobank
-Codes for my thesis paper 
+To run these files and generate the results download all files in zip formant.
