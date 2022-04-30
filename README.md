@@ -9,3 +9,8 @@ A discription of the scripts:
   a. Run downsample.py python file which down sample the number of cases and controls, it also parses the SNPs XML file into a text files.
 3. plinky.exec: read diseases.txt file line by line, then for each line run plinky_run.exec
 4. plinky_run.exec: generate plink files for the input disease name.
+
+To execute all codes in one run, 4 main files need to be available:
+1. Ethnic background and ID of all individuals (csv/tsv file format)
+2. SNPs list related to a disease (XML or txt file format)
+3. File with disease name and its corresponding ICD 10 and ICD 9 codes. (codes.txt)
